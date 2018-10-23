@@ -6,8 +6,9 @@ Julia's `@code_native` macro.
 
 Note that there is currently an issue with Julia's `@code_native`
 producing incorrect output on MacOS, so the example below may or may
-not work. In particular, llvm-mca may complain that it is being given
-32-bit assembly.
+not work (https://github.com/JuliaLang/julia/issues/28046). In
+particular, llvm-mca may complain that it is being given 32-bit
+assembly.
 
 Example
 ```
@@ -54,8 +55,8 @@ Resources:
 
 
 Resource pressure per iteration:
-[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    
- -      -     2.56   2.56   2.50   2.50    -     1.53   2.35    -     
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]
+ -      -     2.56   2.56   2.50   2.50    -     1.53   2.35    -
 
 Resource pressure by instruction:
 [0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    Instructions:
