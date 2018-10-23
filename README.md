@@ -71,3 +71,7 @@ Resource pressure by instruction:
  -      -     0.06   0.45   0.09   0.91    -     0.49   1.00    -     retq
  -      -      -      -      -      -      -      -      -      -     nopl      (%rax)
 ```
+
+# Todo
+
+- [ ] Add support for the `LLVM-MCA-{BEGIN,END}` code region marks.
