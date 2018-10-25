@@ -75,3 +75,9 @@ Resource pressure by instruction:
 # Todo
 
 - [ ] Add support for the `LLVM-MCA-{BEGIN,END}` code region marks.
+  - One idea is to do what `iaca` does, and insert assembly
+    instructions into the code using `llvmcall`. This *almost* works,
+    but LLVM will reorder these instructions with respect to the block
+    of code they are meant to be surrounding, which makes them
+    useless. In particular, it is not clear to me why `iaca`'s
+    instructions (`nop`) are not reordered in the same way.

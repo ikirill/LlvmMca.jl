@@ -35,4 +35,24 @@ function code_mca(func, argtypes; save::Bool=false)
     end
 end
 
+"""    @region_mca <code-block>
+
+tries to insert llvm-mca code region markers.
+"""
+macro region_mca(expr)
+    quote
+        ccall(:fesetround, Int32, (Int32,), 0)
+        t1 = Base.llvmcall("""
+call void asm sideeffect "pause", "~{memory}"()
+ret void
+    """, Cvoid, Tuple{})
+        $(esc(expr))
+        ccall(:fesetround, Int32, (Int32,), 0)
+        t2 = Base.llvmcall("""
+call void asm sideeffect "pause", "~{memory}"()
+ret void
+    """, Cvoid, Tuple{})
+    end
+end
+
 end
